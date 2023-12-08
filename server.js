@@ -1,13 +1,33 @@
 import express from 'express';
 import next from 'next';
+
+const dev = process.env.NODE_ENV !== 'production';
+const nextApp = next({ dev });
+const handle = nextApp.getRequestHandler();
+
 const app = express();
 const PORT = 3001;
 
 
-app.listen(PORT, () => {
-    console.log(`Server running on port {PORT}`);
-});
 
-app.get('/', (req, res) => {
-    res.send('Welcome to my portfolio server');
-});
+
+// app.get('/', (req, res) => {
+//     res.send('Welcome to my portfolio server');
+// });
+
+// app.get('/api/projects', (req, res) => {
+
+//     res.send('Proejcts data will be here soon')
+// });
+
+
+nextApp.prepare().then(() => {
+    app.get('*', (req, res) => {
+        return handle(req, res);
+    });
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+
+    });
+})
+
