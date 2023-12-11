@@ -31,4 +31,13 @@ const ThreeContainer = () => {
         };
         animate();
 
-        
+        //handle window resize
+
+        const handleResize = () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        };
+            window.addEventListener('resize', handleResize);
+
+            
