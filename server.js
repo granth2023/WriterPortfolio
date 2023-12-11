@@ -25,10 +25,10 @@ app.use(morgan('dev'));
 //     res.send('Welcome to my portfolio server');
 // });
 
-// app.get('/api/projects', (req, res) => {
+app.get('/api/projects', (req, res) => {
 
-//     res.send('Proejcts data will be here soon')
-// });
+    res.send('Proejcts data will be here soon')
+});
 
 
 nextApp.prepare().then(() => {
