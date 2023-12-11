@@ -14,6 +14,10 @@ const handle = nextApp.getRequestHandler();
 const app = express();
 const PORT = 3001;
 
+//Middlewares
+app.use(cors());
+app.use(bodyParser.json());
+app.use(morgan('dev'));
 
 
 
