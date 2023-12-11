@@ -1,5 +1,5 @@
 import React from "react";
-import ThreeContainer from '../../WriterPortfolio/writer-portfolio/src/app/components/ThreeContainer'
+import ThreeContainer from '../components/ThreeContainer'
 
 const Home = () => {
   return ( 
