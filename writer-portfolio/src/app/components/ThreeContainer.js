@@ -16,7 +16,7 @@ const ThreeContainer = () => {
         const geometry = new THREE.BoxGeometry();
         const material  = new THREE.MeshBasicMaterial({ color: 0x00ff00});
         const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube));
+        scene.add(cube);
 
         camera.position.z = 5;
 
@@ -40,4 +40,15 @@ const ThreeContainer = () => {
         };
             window.addEventListener('resize', handleResize);
 
-            
+        //cleanup on unmount
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            mountRef.current.removeChild(renderer.domElement);
+        };
+    }, []);
+
+    return <div ref={mountRef}/>;
+}
+
+export default ThreeContainer; 
