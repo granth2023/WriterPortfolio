@@ -10,4 +10,10 @@ const miniSiteSchema = new mongoose.Schema({
     name: String,
     description: String,
     content: [{ type: Map, of: String }],
-    files: [fileSchema],
+    files: [fileSchema]
+});
+
+const MiniSite = mongoose.model('MiniSite', miniSiteSchema);
+
+export default MiniSite;
+
