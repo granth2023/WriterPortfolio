@@ -80,7 +80,7 @@ app.get('/api/minisites:id', async (req, res) => {
 
 app.put ('/api/minisites/:id', async (req, res) => {
     try {
-        const updatedMiniSite = await MiniSite.findByIdAndUpdate( req.params.id , req.body, {new: true});
+        const updatedMiniSite = await MiniSite.findByIdAndUpdate( req.params.id, req.body, {new: true});
         res.json(updatedMiniSite);
     } catch (error){
         res.status(400).json({ message: error.message });
@@ -88,4 +88,11 @@ app.put ('/api/minisites/:id', async (req, res) => {
 });
 
 
-app.delete
+app.delete('/api/minisites/:id', async (req, res) => {
+    try{
+        await MiniSite.findByIdAndDelete(req.params.id);
+        res.json({ message: 'MiniSite deleted'});
+    } catch (error) {
+        res.status(500).json({ message: error.message})
+   }
+ });
