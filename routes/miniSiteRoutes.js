@@ -8,3 +8,5 @@ import {
 } from '../controllers/miniSiteControllers.js';
 
 const router = express.Router();
+
+router.post('/', createMiniSite);
