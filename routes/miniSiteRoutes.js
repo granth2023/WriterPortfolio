@@ -13,3 +13,4 @@ router.post('/', createMiniSite);
 router.get('/', getMiniSites);
 router.get('/', getMiniSiteById);
 router.put('/', updateMiniSite);
+router.delete('/', deleteMiniSite);
