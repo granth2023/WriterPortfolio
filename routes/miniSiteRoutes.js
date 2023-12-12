@@ -6,3 +6,5 @@ import {
     updateMiniSite,
     deleteMiniSite,
 } from '../controllers/miniSiteControllers.js';
+
+const router = express.Router();
