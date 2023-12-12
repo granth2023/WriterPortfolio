@@ -5,4 +5,4 @@ import {
     getMiniSiteById,
     updateMiniSite,
     deleteMiniSite,
-}
+} from '../controllers/miniSiteControllers.js';
