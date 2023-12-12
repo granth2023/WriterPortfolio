@@ -59,4 +59,11 @@ app.post('/api/minisites', async (req, res) => {
     });
 
 
-app.get('/api/minisites')    
+app.get('/api/minisites', async (req, res) => {
+    try { 
+        const minisites = await MiniSite.find();
+        res.json(miniSites);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
