@@ -11,3 +11,4 @@ const router = express.Router();
 
 router.post('/', createMiniSite);
 router.get('/', getMiniSites);
+router.get('/', getMiniSiteById);
