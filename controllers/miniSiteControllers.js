@@ -29,3 +29,20 @@ export const getMiniSiteById = async (req, res) => {
     }
 };
 
+export const updatedMiniSite = async (req, res) => {
+    try{ 
+        const updatedMiniSite = await MiniSite.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.json(updatedMiniSite);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+};
+
+export const deleteMiniSite = async (req, res) => { 
+    try { 
+        await MiniSite.findByIdAndDelete(req.params.id);
+        res.json({ message: 'MiniSite deleted' });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
