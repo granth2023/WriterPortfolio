@@ -14,6 +14,13 @@ const handle = nextApp.getRequestHandler();
 const app = express();
 const PORT = 3001;
 
+//MongoDB Connection
+
+const dbURI = process.env.MONGODB_URI; 
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected...'))
+    .catch(err => console.error('Could not connect to MongoDB:', err));
+
 //Middlewares
 app.use(cors());
 app.use(bodyParser.json());
