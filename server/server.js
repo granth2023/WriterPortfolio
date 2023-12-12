@@ -67,3 +67,13 @@ app.get('/api/minisites', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+app.get('/api/minisites:id', async (req, res) => { 
+    try{
+        const miniSite = await MiniSite.findById(req.params.id);
+        if(!miniSite) return res.status(404).json({ message: 'MiniSite not found' });
+        res.json(miniSite);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
