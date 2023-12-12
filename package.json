@@ -1,15 +1,21 @@
 {
   "name": "writer-portfolio",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start-backend": "node server/server.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "mongoose": "^8.0.3",
+    "morgan": "^1.10.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",

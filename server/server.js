@@ -4,7 +4,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-
+import mongoose from 'mongoose';
 dotenv.config();
 
 const dev = process.env.NODE_ENV !== 'production';
@@ -17,7 +17,7 @@ const PORT = 3001;
 //MongoDB Connection
 
 const dbURI = process.env.MONGODB_URI; 
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(dbURI)
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.error('Could not connect to MongoDB:', err));
 
@@ -48,3 +48,15 @@ nextApp.prepare().then(() => {
     });
 })
 
+app.post('/api/minisites', async (req, res) => {
+    try{
+        const miniSite = new MiniSite(req.body);
+        const savedMiniSite = await miniSite.save();
+        res.status(201).json(savedMiniSite);
+    } catch (error){
+        res.status(400).json({ message: error.message });
+    }
+    });
+
+
+app.get('/api/minisites')    
