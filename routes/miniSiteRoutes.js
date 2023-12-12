@@ -9,8 +9,8 @@ import {
 
 const router = express.Router();
 
-router.post('/', createMiniSite);
-router.get('/', getMiniSites);
-router.get('/', getMiniSiteById);
-router.put('/', updateMiniSite);
-router.delete('/', deleteMiniSite);
+router.post('/minisites', createMiniSite);
+router.get('/minisites', getMiniSites);
+router.get('/minisites/:id', getMiniSiteById);
+router.put('/minisites/:id', updateMiniSite);
+router.delete('/minisites/:id', deleteMiniSite);
