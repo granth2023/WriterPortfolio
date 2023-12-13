@@ -5,6 +5,8 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import miniSiteRoutes from '../routes/miniSiteRoutes.js';
+
 dotenv.config();
 
 const dev = process.env.NODE_ENV !== 'production';

@@ -3,7 +3,7 @@ import {
     createMiniSite, 
     getMiniSites,
     getMiniSiteById,
-    updateMiniSite,
+    updatedMiniSite,
     deleteMiniSite,
 } from '../controllers/miniSiteControllers.js';
 
@@ -12,7 +12,7 @@ const router = express.Router();
 router.post('/minisites', createMiniSite);
 router.get('/minisites', getMiniSites);
 router.get('/minisites/:id', getMiniSiteById);
-router.put('/minisites/:id', updateMiniSite);
+router.put('/minisites/:id', updatedMiniSite);
 router.delete('/minisites/:id', deleteMiniSite);
 
 export default router;

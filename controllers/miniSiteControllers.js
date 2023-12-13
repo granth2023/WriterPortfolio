@@ -1,4 +1,4 @@
-import MiniSite from '../models/MiniSite';
+import MiniSite from '../models/MiniSite.js';
 
 export const createMiniSite = async (req, res) => {
     try{
