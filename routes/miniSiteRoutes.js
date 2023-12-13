@@ -9,10 +9,10 @@ import {
 
 const router = express.Router();
 
-router.post('/minisites', createMiniSite);
-router.get('/minisites', getMiniSites);
-router.get('/minisites/:id', getMiniSiteById);
-router.put('/minisites/:id', updatedMiniSite);
-router.delete('/minisites/:id', deleteMiniSite);
+router.post('/api/minisites', createMiniSite);
+router.get('/api/minisites', getMiniSites);
+router.get('/api/minisites/:id', getMiniSiteById);
+router.put('/api/minisites/:id', updatedMiniSite);
+router.delete('/api/minisites/:id', deleteMiniSite);
 
 export default router;
