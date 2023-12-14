@@ -18,7 +18,7 @@ export const getMiniSites = async (req, res) => {
         res.status(500).json({ message: error.message });
 };
 };
-
+ 
 export const getMiniSiteById = async (req, res) => {
     try {
         const miniSite = await MiniSite.findById(req.params.id);
