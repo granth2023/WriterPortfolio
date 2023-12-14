@@ -1,3 +1,7 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
-export const fetchMiniSites = async (): Promise<void> =>
+export const fetchMiniSites = async (): Promise<void> => {
+    try{
+
+    } catch 
+}
