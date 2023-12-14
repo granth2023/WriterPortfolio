@@ -11,7 +11,7 @@ const miniSiteSchema = new mongoose.Schema({
     description: String,
     content: [{ type: Map, of: String }],
     files: [fileSchema]
-});
+}, { collection: 'miniSites'});
 
 const MiniSite = mongoose.model('MiniSite', miniSiteSchema);
 
