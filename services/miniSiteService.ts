@@ -7,7 +7,6 @@ export const fetchMiniSites = async (): Promise<void> => {
             throw new Error('Network response was not ok');
         }
         return await response.json();
-
     } catch (error) { 
         console.error('Error fetching mini sites:', error);
         throw error;
