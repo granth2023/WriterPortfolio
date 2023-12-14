@@ -5,8 +5,8 @@ export const fetchMiniSites = async (): Promise<void> => {
         const response = await fetch(`${API_URL}/api/miniSites`);
         if(!response.ok){
             throw new Error('Network response was not ok');
-
         }
+        return await response.json();
 
     } catch (error) { 
         console.error('Error fetching mini sites:', error);
