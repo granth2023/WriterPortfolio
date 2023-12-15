@@ -22,10 +22,21 @@ const ThreeContainer = () => {
         //add a simple object cube)
         const geometry = new THREE.TorusGeometry(2, 0.5, 16, 100);
         const material  = new THREE.MeshStandardMaterial({ color: 0x00ff00, emissive: 0x00ff00 });
-        const portal = new THREE.Mesh(geometry, material);
-        scene.add(portal);
+        // const portal = new THREE.Mesh(geometry, material);
+        // scene.add(portal);
 
-        camera.position.z = 5;
+        // camera.position.z = 5;
+
+        //create and position portals
+        const numPortals = 3;
+        const radius = 5;
+        for( let i = 0;, i < numPortals; i++){
+            const angle = (Math.PI / (numPortals -1)) * i;
+            const x = raidus * Math.cos(angle);
+            const y =0;
+            const z = radius * Math.sin(angle) - radius;
+        }
+
 
         //animation loop
 
