@@ -10,5 +10,5 @@ export const fetchMiniSites = async (): Promise<void> => {
     } catch (error) { 
         console.error('Error fetching mini sites:', error);
         throw error;
-    }
+    } 
 };
