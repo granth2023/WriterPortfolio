@@ -12,7 +12,8 @@ const ThreeContainer = () => {
         mountRef.current.appendChild(renderer.domElement);
 
         //Lighting effect
-        
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+
         
         
         //add a simple object cube)
