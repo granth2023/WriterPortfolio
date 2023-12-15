@@ -10,6 +10,9 @@ const ThreeContainer = () => {
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         mountRef.current.appendChild(renderer.domElement);
+
+        //Lighting effect
+        
         
         
         //add a simple object cube)
