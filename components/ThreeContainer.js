@@ -30,7 +30,7 @@ const ThreeContainer = () => {
         //create and position portals
         const numPortals = 3;
         const radius = 5;
-        for( let i = 0;, i < numPortals; i++){
+        for( let i = 0; i < numPortals; i++){
             const angle = (Math.PI / (numPortals -1)) * i;
             const x = raidus * Math.cos(angle);
             const y =0;
@@ -49,8 +49,8 @@ const ThreeContainer = () => {
 
         const animate = () => {
             requestAnimationFrame(animate);
-            portal.rotation.x += 0.01;
-            portal.rotation.y += 0.01;
+            // portal.rotation.x += 0.01;
+            // portal.rotation.y += 0.01;
             renderer.render(scene, camera);
         };
         animate();
