@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
-import { TextTexture, SpriteMaterial, Sprite } from '@seregpie/three.text-texture';
 
 const ThreeContainer = () => {
     const mountRef = useRef(null);
@@ -35,16 +34,19 @@ const ThreeContainer = () => {
             scene.add(portal);
             portals.push(portal);
 
-            // Text label
-            const textTexture = new TextTexture({
-                text: `Portal ${i + 1}`,
-                fontFamily: 'Arial',
-                fontSize: 40,
-                fillColor: '#ffffff'
-            });
-            const spriteMaterial = new SpriteMaterial({ map: textTexture });
-            const textLabel = new Sprite(spriteMaterial);
-            textLabel.position.set(x, y + 3, z); // Adjust Y to position above the portal
+            // Text label using CanvasTexture
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 256;
+            canvas.height = 128;
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '40px Arial';
+            ctx.fillText(`Portal ${i + 1}`, 10, 50);
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+            const textLabel = new THREE.Sprite(spriteMaterial);
+            textLabel.position.set(x, y + 3, z);
             textLabel.scale.set(5, 2.5, 1);
             scene.add(textLabel);
         }
@@ -69,15 +71,6 @@ const ThreeContainer = () => {
                 const time = Date.now() * 0.002 + index;
                 portal.material.emissiveIntensity = (Math.sin(time) * 0.5) + 0.5;
             });
-
-            // Update raycaster and check for hover
-            raycaster.setFromCamera(mouse, camera);
-            const intersects = raycaster.intersectObjects(scene.children, true);
-            for (let i = 0; i < intersects.length; i++) {
-                if (intersects[i].object instanceof Sprite) {
-                    intersects[i].object.material.map.fillColor = '#000000';
-                }
-            }
 
             renderer.render(scene, camera);
         };
