@@ -19,10 +19,9 @@ const ThreeContainer = () => {
 
 
         
-        
         //add a simple object cube)
         const geometry = new THREE.TorusGeometry(2, 0.5, 16, 100);
-        const material  = new THREE.MeshBasicMaterial({ color: 0x00ff00});
+        const material  = new THREE.MeshStandardMaterial({ color: 0x00ff00, emissive: 0x00ff00 });
         const portal = new THREE.Mesh(geometry, material);
         scene.add(portal);
 
