@@ -13,10 +13,10 @@ const ThreeContainer = () => {
         
         
         //add a simple object cube)
-        const geometry = new THREE.BoxGeometry();
+        const geometry = new THREE.TorusGeometry(2, 0.5, 16, 100);
         const material  = new THREE.MeshBasicMaterial({ color: 0x00ff00});
-        const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
+        const portal = new THREE.Mesh(geometry, material);
+        scene.add(portal);
 
         camera.position.z = 5;
 
@@ -25,8 +25,8 @@ const ThreeContainer = () => {
 
         const animate = () => {
             requestAnimationFrame(animate);
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
+            portal.rotation.x += 0.01;
+            portal.rotation.y += 0.01;
             renderer.render(scene, camera);
         };
         animate();
