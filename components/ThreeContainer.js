@@ -30,15 +30,17 @@ const ThreeContainer = () => {
         //create and position portals
         const numPortals = 3;
         const radius = 5;
+        const portals = [];
         for( let i = 0; i < numPortals; i++){
-            const angle = (Math.PI / (numPortals -1)) * i;
-            const x = raidus * Math.cos(angle);
-            const y =0;
+            const angle = (Math.PI / (numPortals + 1)) * (i + 1);
+            const x = radius * Math.cos(angle);
+            const y = 0;
             const z = radius * Math.sin(angle) - radius;
 
-            const portal = new THREE.Mesh(TorusGeometry, torusMaterial);
+            const portal = new THREE.Mesh(geometry, material);
             portal.position.set( x, y, z );
             scene.add(portal);
+            portals.push(portal);
         }
 
         camera.position.z = 10;
@@ -49,10 +51,15 @@ const ThreeContainer = () => {
 
         const animate = () => {
             requestAnimationFrame(animate);
+
+            const time = Date.now() * 0.001;
+            portals.forEach(portal => {
+            portal.material.emissiveIntensity = Math.sin(time) * 0.5 + 0.5;
+        });
             // portal.rotation.x += 0.01;
             // portal.rotation.y += 0.01;
             renderer.render(scene, camera);
-        };
+        }
         animate();
 
         //handle window resize
