@@ -35,7 +35,13 @@ const ThreeContainer = () => {
             const x = raidus * Math.cos(angle);
             const y =0;
             const z = radius * Math.sin(angle) - radius;
+
+            const portal = new THREE.Mesh(TorusGeometry, torusMaterial);
+            portal.position.set( x, y, z );
+            scene.add(portal);
         }
+
+        camera.position.z = 10;
 
 
         //animation loop
