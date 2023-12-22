@@ -5,6 +5,8 @@ import * as THREE from 'three';
 
 const ThreeContainer = () => {
     const mountRef = useRef(null);
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
 
     useEffect(() => {
         const scene = new THREE.Scene();
@@ -53,14 +55,26 @@ const ThreeContainer = () => {
             scene.add(textLabel);
         }
 
+   
+          
+
+        const onMouseMove = (event) => {
+            mouse.x = (event.clientX / window.innerWidth) * 2-1;
+            mouse.y = - (event.clientY / window.innerHeight) * 2+1;
+        };
         camera.position.z = 30;
 
         // Mouse event handling
-        const raycaster = new THREE.Raycaster();
-        const mouse = new THREE.Vector2();
-        const onMouseMove = (event) => {
+        const onCanvasClick = (event) => {
+            event.preventDefault();
             mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
             mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(portals);
+            if(intersects.length > 0) {
+                console.log('Portal clicked:', intersects[0].object);
+            }
+            window.addEventListener('click', onCanvasClick); 
         };
         window.addEventListener('mousemove', onMouseMove);
 
@@ -90,6 +104,7 @@ const ThreeContainer = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('click', onCanvasClick);
             mountRef.current.removeChild(renderer.domElement);
         };
     }, []);
