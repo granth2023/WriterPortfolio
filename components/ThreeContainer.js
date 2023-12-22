@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 
+//to start: npm run build --> npm start 
+
 const ThreeContainer = () => {
     const mountRef = useRef(null);
 
