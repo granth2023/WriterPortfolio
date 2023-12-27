@@ -76,6 +76,9 @@ const ThreeContainer = () => {
             }
             window.addEventListener('click', onCanvasClick); 
         };
+
+        const rendererDomElement = renderer.domElement;
+        rendererDomElement.addEventListener('click', onCanvasClick);
         window.addEventListener('mousemove', onMouseMove);
 
         // Animation loop
