@@ -1,15 +1,19 @@
 import React from 'react';
 
-// interface ImageBoxProps {
+interface ImageBoxProps {
 //     imageUrl: string;
-//     altText: string;
-// }
+    altText: string;
+}
 
-// const ImageBox: React.FC<ImageBoxProps> = ({ imageUrl, altText }) => {
-//     return (
-//         <div className="m-4 shadow-lg border-4 border-gray-800 bg-white">
-//             <img src={imageUrl} alt={altText} className="w-full" />
-//         </div>
-//     );
-// };
-// export default ImageBox;
+//pass imageUrl along with altText 
+const ImageBox: React.FC<ImageBoxProps> = ({ altText }) => {
+    return (
+        <div className="m-4 shadow-lg border-4 border-gray-800 bg-white">
+            <div className="bg-red-500 h-64 w-full" aria-label={altText}> </div>
+            </div>
+    )
+}
+ export default ImageBox;
+
+
+/* <img src={imageUrl} alt={altText} className="w-full" /> */  
