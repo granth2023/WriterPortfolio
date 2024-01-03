@@ -17,3 +17,5 @@ const ImageBox: React.FC<ImageBoxProps> = ({ altText }) => {
 
 
 /* <img src={imageUrl} alt={altText} className="w-full" /> */  
+
+//ToDO: make it a carousel and a blog detective blog  Detective Writer 
