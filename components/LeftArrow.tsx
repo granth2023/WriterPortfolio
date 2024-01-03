@@ -6,11 +6,15 @@ const LeftArrow = () => {
     const handleClick = () => {
         router.push('/BluePage');
     };
+
     return (
-        <div className="aboslute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick= {handleClick}> 
-            <svg className="h-8 w-8 text-black" fill="none" viewBox=" 0 0 24 24" stroke="currentColor">
-             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d="M15 191-7-7 7-7" />
-            </svg>
+        <div className="absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={handleClick}>
+            <div className="relative">
+                {/* Arrow Head */}
+                <div className="w-0 h-0 border-t-[20px] border-b-[20px] border-r-[30px] border-solid border-transparent" style={{borderRightColor: 'white'}}></div>
+                {/* Arrow Tail */}
+                <div className="absolute top-[-20px] left-[30px] w-[20px] h-[40px] bg-white"></div>
+            </div>
         </div>
     );
 };

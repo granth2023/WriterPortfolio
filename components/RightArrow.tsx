@@ -7,10 +7,8 @@ const RightArrow = () => {
         router.push('/GreenPage');
     };
     return (
-        <div className="aboslute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick= {handleClick}> 
-            <svg className="h-8 w-8 text-black" fill="none" viewBox=" 0 0 24 24" stroke="currentColor">
-             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d="M9 517 7-7 7" />
-            </svg>
+        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick= {handleClick}> 
+            <div className="border-t-16 border-b-16 border-1-16 border-solid border-transparent border-1-black"></div>
         </div>
     );
 };
