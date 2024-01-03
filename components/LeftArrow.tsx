@@ -14,3 +14,5 @@ const LeftArrow = () => {
         </div>
     );
 };
+
+export default LeftArrow;
