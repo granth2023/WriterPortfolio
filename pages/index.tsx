@@ -13,6 +13,7 @@
 // export default Home;
 
 import ImageBox from '../components/ImageBox';
+import '../styles/globals.css'
 
 // const HomePage = () => {
 //   return ( 
@@ -30,8 +31,9 @@ import ImageBox from '../components/ImageBox';
 
 
 const HomePage = () => {
+  console.log("Rendering HomePage");
   return (
-    <div className="flex flex-wrap jstuify-center items-center bg-gray-100 p-8">
+    <div className="flex flex-wrap justify-center items-center bg-gray-100 p-8">
       {Array.from({ length: 5 }).map((_, index)=> (
         <ImageBox
           key={index}
@@ -41,3 +43,5 @@ const HomePage = () => {
     </div>
   )
 };
+
+export default HomePage; 
