@@ -9,8 +9,8 @@ interface ImageBoxProps {
 const ImageBox: React.FC<ImageBoxProps> = ({ altText }) => {
     console.log("rendering ImageBox:", altText)
     return (
-        <div className="m-4 shadow-lg border-4 border-gray-800 bg-white">
-            <div className="bg-red-500 h-64 w-full" aria-label={altText}> </div>
+        <div className="m-4 shadow-lg border-4 border-black" style= {{ width: '300px', height: '300px' }}>
+            <div className="bg-red-500 h-full w-full" aria-label={altText}> </div>
             </div>
     )
 }
