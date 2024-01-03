@@ -33,7 +33,7 @@ import '../styles/globals.css'
 const HomePage = () => {
   console.log("Rendering HomePage");
   return (
-    <div className="flex flex-wrap justify-center items-center bg-gray-100 p-8">
+    <div className="flex flex-wrap justify-center items-center bg-gray-100 p-8 h-screen">
       {Array.from({ length: 5 }).map((_, index)=> (
         <ImageBox
           key={index}
